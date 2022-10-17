@@ -1,0 +1,24 @@
+{% extends "appblog/base.html" %}
+
+{% block main_content%}
+<style>
+    body{
+        background-color: rgb(251, 255, 0);    }
+</style>
+
+<body>
+
+    <h1><u>Buscar libro por Autor:</u></h1>
+
+    <form action="/appblog/buscar/" method="GET" >
+        <input type="text" name="autor" id="autor">
+        <input type="submit" value="Buscar" >
+    </form>
+    
+        <hr style="border-color:black;">
+        <br>
+   
+{% endblock %}
+</body>
+
+</html>

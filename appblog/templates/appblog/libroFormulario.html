@@ -1,0 +1,26 @@
+{%extends "appblog/base.html" %}
+
+{% block main_content %}
+<style>
+    body{
+        background-color: rgb(251, 255, 0);
+    }
+
+</style>
+<body>
+    {% if miFormulario.errors %}
+        <p style="color: red;"> Estan mal los datos </p>
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+    
+        <p> La fecha debe ingresarse de la siguiente forma: Año-Mes-Día </p>
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+{% endblock%}
+
+</html>

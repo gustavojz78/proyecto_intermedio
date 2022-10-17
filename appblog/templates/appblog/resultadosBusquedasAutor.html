@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block main_content%}
+
+<style>
+    body{
+        background-color: rgb(251, 255, 0);
+    }
+
+</style>
+
+<body>
+
+    <h1><u>Resultados de busqueda para autor:</u> {{autor}}</h1>
+    {% if libros %}
+
+    <ul>
+        {% for libro in libros%}
+        <li>{{libro.autor}}. Titulo: {{libro.titulo}}. {{libro.genero}}. Subido al blog el dia: {{libro.fechaIngreso}}</li>
+        {% endfor%}
+    </ul>
+
+        {% else %}
+            <p>Autor NO ENCONTRADO en el blog</p>
+
+
+    {%endif%}
+
+{% endblock%}
+</body>
+
+</html>
