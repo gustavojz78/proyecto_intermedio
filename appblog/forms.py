@@ -7,13 +7,13 @@ class UsuarioFormulario(forms.Form):
     dni=forms.IntegerField()
     nickname=forms.CharField(max_length=30)
     email=forms.EmailField()
-    fechaRegistro=forms.DateTimeField()
+  
 
 class LibroFormulario(forms.Form):
     titulo = forms.CharField()
     autor = forms.CharField()
     genero = forms.CharField()
-    fechaIngreso = forms.DateTimeField()
+ 
 
 
 class ComentarioFormulario(forms.Form):

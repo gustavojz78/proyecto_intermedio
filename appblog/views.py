@@ -28,7 +28,7 @@ def libroFormulario(request):
         print(miFormulario)
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            libro = Libro (titulo=informacion["titulo"], autor=informacion["autor"], genero=informacion["genero"], fechaIngreso=informacion["fechaIngreso"])
+            libro = Libro (titulo=informacion["titulo"], autor=informacion["autor"], genero=informacion["genero"], fechaIngreso=datetime.now())
             libro.save()
             return render(request, "appblog/index.html")
     else:
@@ -77,7 +77,7 @@ def usuarioFormulario(request):
         print(miFormulario2)
         if miFormulario2.is_valid:
             informacion = miFormulario2.cleaned_data
-            usuario =  Usuario (nombre=informacion["nombre"], apellido=informacion["apellido"], dni=informacion["dni"], nickname=informacion["nickname"], email=informacion["email"], fechaRegistro=informacion["fechaRegistro"] )
+            usuario =  Usuario (nombre=informacion["nombre"], apellido=informacion["apellido"], dni=informacion["dni"], nickname=informacion["nickname"], email=informacion["email"], fechaRegistro=datetime.now() )
             usuario.save()
             return render(request, "appblog/index.html")
     else:
