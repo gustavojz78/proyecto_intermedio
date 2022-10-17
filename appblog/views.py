@@ -37,6 +37,23 @@ def libroFormulario(request):
         
     return render(request, "appblog/libroFormulario.html", {"miFormulario":miFormulario})
 
+def comentarioFormulario(request):
+    if request.method == "POST":
+        miFormulario = ComentarioFormulario(request.POST)
+        print(miFormulario)
+        if miFormulario.is_valid:
+            informacion = miFormulario.cleaned_data
+            comentario = Comentario (creador=informacion["creador"], texto=informacion["texto"], fechaCreación=datetime.now())
+            comentario.save()
+            return render(request, "appblog/index.html")
+    else:
+            
+     miFormulario = ComentarioFormulario()
+
+        
+    return render(request, "appblog/comentarioFormulario.html", {"miFormulario":miFormulario})
+
+
 def busquedaAutor(request):
     return render(request, "appblog/busquedaAutor.html")
     
@@ -73,6 +90,10 @@ def busquedaUsuario(request):
     return render(request, "appblog/busquedaUsuario.html")
     
     
+def busquedaComentario(request):
+    return render(request, "appblog/busquedaComentario.html")
+
+
 def buscarUsuario(request):
     if request.GET["nickname"]:
     
@@ -83,6 +104,21 @@ def buscarUsuario(request):
     else:
         
         respuesta = "No enviaste nickname"
+    
+    return HttpResponse(respuesta)
+    
+    
+    
+def buscarComentario(request):
+    if request.GET["creador"]:
+    
+        creador = request.GET["creador"]
+        comentarios = Comentario.objects.filter(creador__icontains=creador)
+        
+        return render(request, "appblog/resultadosBusquedasComentarios.html", {"comentarios":comentarios, "creador":creador})
+    else:
+        
+        respuesta = "No enviaste creador"
     
     return HttpResponse(respuesta)
     

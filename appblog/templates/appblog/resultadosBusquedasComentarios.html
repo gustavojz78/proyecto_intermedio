@@ -17,17 +17,17 @@
 
 <body>
 
-    <h1><u>Resultados de busqueda para autor:</u> {{autor}}</h1>
-    {% if libros %}
+    <h1><u>Resultados de busqueda de comentarios de:</u> {{creador}}</h1>
+    {% if creador %}
 
     <ul>
-        {% for libro in libros%}
-        <li>{{libro}}</li>
+        {% for comentario in comentarios %}
+        <li>El comentario: "{{comentario.texto}}" esta en este blog desde el dia: {{comentario.fechaCreación}}</li>
         {% endfor%}
     </ul>
 
         {% else %}
-            <p>Autor NO ENCONTRADO en el blog</p>
+            <p>Usuario NO Registrado en el blog</p>
 
 
     {%endif%}

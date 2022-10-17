@@ -14,5 +14,12 @@ class LibroFormulario(forms.Form):
     autor = forms.CharField()
     genero = forms.CharField()
     fechaIngreso = forms.DateTimeField()
+
+
+class ComentarioFormulario(forms.Form):
+    creador = forms.CharField()
+    texto = forms.CharField()
+    
+  
     
     
