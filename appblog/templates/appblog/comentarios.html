@@ -13,13 +13,13 @@
 
 </style>
 <body>
-    <h1>y esta sera la sección de comentarios</h1>
-    <p>Comentarios subidos por admin ... por los momentos :P</p>
+    <h1>Seccion de comentarios</h1>
+
     {% for comment in comments %}
         <p>Id: {{comment.id}}</p> 
         <p>Creado por: {{comment.creador}} </p>
         <p>Publicación: {{comment.texto}} </p>   
-        <p>Fecha de creación: {{comment.fechacreación}} </p>
+        <p>Fecha de creación: {{comment.fechaCreación}} </p>
         <br>
     {% endfor %}
 </body>

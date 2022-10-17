@@ -20,7 +20,8 @@ class Libro(models.Model):
     fechaIngreso=models.DateTimeField()
 
     def __str__(self):
-        return f"{(self.titulo)}-{(self.autor)} | {(self.genero)}" 
+        print(type(self.fechaIngreso))
+        return f"titulo:{self.titulo}-autor:{self.autor} | genero:{self.genero} | fechaIngreso:{self.fechaIngreso.strftime('%d %b, %Y')}"   ##{{libro.autor}}. Titulo: {{libro.titulo}}. {{libro.genero}}. Subido al blog el dia: {{libro.fechaIngreso}}
 
 class Comentario(models.Model):
     id=models.IntegerField(primary_key=True)
