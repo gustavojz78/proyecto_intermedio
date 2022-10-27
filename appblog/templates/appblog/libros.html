@@ -8,18 +8,18 @@
 </head>
 <style>
     body{
-        background-color: rgb(0, 255, 85);
+        background-color: yellow;
     }
 
 </style>
 <body>
-    <h1>Seccion de comentarios</h1>
-
-    {% for comment in comments %}
-        <p>Id: {{comment.id}}</p> 
-        <p>Creado por: {{comment.creador}} </p>
-        <p>Publicación: {{comment.texto}} </p>   
-        <p>Fecha de creación: {{comment.fechaCreacion}} </p>
+    <h1>Lista de Libros registrados</h1>
+    
+    {% for book in books %}
+        <p>Titulo: {{book.titulo}} </p> 
+        <p>Autor:{{book.autor}} </p>
+        <p>Genero:{{book.genero}} </p>   
+        <p>Fecha de ingreso:{{book.fechaIngreso}} </p>
         <br>
     {% endfor %}
 </body>

@@ -8,14 +8,11 @@ class UsuarioFormulario(forms.Form):
     nickname=forms.CharField(max_length=30)
     email=forms.EmailField()
   
-
 class LibroFormulario(forms.Form):
     titulo = forms.CharField()
     autor = forms.CharField()
     genero = forms.CharField()
  
-
-
 class ComentarioFormulario(forms.Form):
     creador = forms.CharField()
     texto = forms.CharField()
