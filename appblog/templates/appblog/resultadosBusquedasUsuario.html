@@ -17,12 +17,12 @@
 
 <body>
 
-    <h1><u>Resultados de busqueda para usuario:</u> {{nickname}}</h1>
+    <h1><u>Resultados de busqueda para usuario:</u> {{username}}</h1>
     {% if usuarios %}
 
     <ul>
         {% for usuario in usuarios %}
-        <li>El usuario {{usuario.nickname}} es miembro de este blog desde el dia: {{usuario.fechaRegistro}}</li>
+        <li>El usuario {{usuario.username}} es miembro de este blog</li>
         {% endfor%}
     </ul>
 

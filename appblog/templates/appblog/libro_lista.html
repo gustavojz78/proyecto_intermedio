@@ -1,0 +1,27 @@
+{% extends "appblog/base2.html"%}
+{%block main_content%}
+<style>
+    body{
+        background-color: yellow;
+    }
+
+</style>
+<body>
+    <h1>Nuestro Catálogo</h1>
+
+        Pulse aquí <a href="{% url 'Nuevo' %}" > <font color="black">Crear</font></a>  
+    
+    </br>
+    <ul>
+        {% for i in object_list %}
+        <li>
+            <p>{{i.titulo}}  |  {{i.autor}}
+            <a href="{% url 'Ver' i.id %}" > <font color="green">Ver</font></a>   
+            <a href="{% url 'Editar' i.id %}" > <font color="blue">Editar</font></a>   
+            <a href="{% url 'Borrar' i.id %}" > <font color="red">Borrar</font></a>  
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+{%endblock%}

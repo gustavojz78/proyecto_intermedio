@@ -1,0 +1,18 @@
+{% extends "appblog/base2.html"%}
+
+{%block main_content%}
+<div class="container mt-5">
+    <form action="/appblog/editarComentario/{{comentario_id}}/" method="POST"> {% csrf_token %}
+        <style>
+            body{
+            background-color: coral;
+                }
+        </style>
+            <p>Ingrese los datos MODIFICADOS del comentario: </p>
+            <table>
+                {{miFormulario3.as_table}}
+            </table>
+                <input type="submit" value= "cargar datos" >
+        </form>
+</div>
+{%endblock%}

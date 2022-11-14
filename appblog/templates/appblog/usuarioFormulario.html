@@ -1,4 +1,4 @@
-{%extends "appblog/base.html" %}
+{%extends "appblog/index.html" %}
 
 {% block main_content %}
 <style>
@@ -13,14 +13,15 @@
     {% endif %}
     <form action="" method="POST">{% csrf_token %}
     
-        <p>Formulario para subir un usuario.</p>
+        <p>Formulario para subir o editar un usuario.</p>
         <table>
             {{ miFormulario2.as_table }}
         </table>
 
-        <input type="submit" value="Enviar">
+        <input type="submit" value="cargar datos">
     </form>
 </body>
-{% endblock%}
 
-</html>
+            
+
+{% endblock%}

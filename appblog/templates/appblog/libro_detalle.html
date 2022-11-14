@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+</head>
+<body>
+    <h1>Información</h1>
+    <!--OJO aqui no uso el books sino libro, que es la forma en que guarde la info en el diccionario del formulario-->
+        <p>Titulo : {{libro.titulo}}</p>
+        <p>Autor: {{libro.autor}} </p>
+        <p>Genero: {{libro.genero}} </p>  
+        <p>Fecha de ingreso al blog: {{libro.fechaIngreso}} </p>  
+    <a href="{% url 'libro_lista' %}" > Regresar</a>
+</body>
+</html>

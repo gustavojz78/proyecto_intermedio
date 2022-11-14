@@ -1,26 +1,34 @@
-{%extends "appblog/base.html" %}
+{% extends "appblog/base2.html"%}
 
-{% block main_content %}
-<style>
-    body{
-        background-color: rgb(251, 255, 0);
-    }
+{%block main_content%}
+<body>   
+<form action="" method="POST"> {% csrf_token %}
+    <style>
+        body{
+            background-color: yellow
+        }
+    </style>
+    <h1>Página para agregar o listar libros</h1>
 
-</style>
-<body>
-    {% if miFormulario.errors %}
-        <p style="color: red;"> Estan mal los datos </p>
-    {% endif %}
-    <form action="" method="POST">{% csrf_token %}
-    
+    <p>Si deseas añadir un libro nuevo, puedes llenar el formulario</p>
+
+        {% if miFormulario.errors %}
+             <p style="color: red;"> Estan mal los datos </p>
+        {% endif %}
        
         <table>
             {{ miFormulario.as_table }}
         </table>
 
-        <input type="submit" value="Enviar">
-    </form>
-</body>
-{% endblock%}
+        <input type="submit" value="Cargar datos">
+    </br>
 
-</html>
+    <p>Si no deseas ingresar un libro, puedes consultar los que tenemos registrados en: </p>
+
+    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'libro_lista'%}">Lista de libros</a> 
+</form>
+</body>
+{%endblock%}
+
+
+

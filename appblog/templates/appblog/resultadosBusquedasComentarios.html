@@ -10,25 +10,24 @@
 
 <style>
     body{
-        background-color: rgb(251, 255, 0);
+        background-color: yellow;
     }
 
 </style>
 
 <body>
 
-    <h1><u>Resultados de busqueda de comentarios de:</u> {{creador}}</h1>
-    {% if creador %}
+    <h1><u>Resultados de busqueda para comentario:</u> {{creador}}</h1>
+    {% if comentarios %}
 
     <ul>
-        {% for comentario in comentarios %}
-        <li>El comentario creado por {{comentario.creador}} "{{comentario.texto}}" esta en este blog desde el dia: {{comentario.fechaCreacion}}</li>
+        {% for c in comentarios %}
+        <li>El comentario de {{c.creador}} es "{{c.texto}}" fue escrito el día: {{c.fechaCreacion}}</li>
         {% endfor%}
     </ul>
 
-        {% else %}
-            <p>Usuario NO Registrado en el blog o sin comentarios</p>
-
+        {% else%}
+            <p>No hay comentarios o usuario no registrado</p>
 
     {%endif%}
 

@@ -1,17 +1,17 @@
-{% extends "appblog/base.html" %}
+{% extends "appblog/base2.html" %}
 
 {% block main_content%}
 <style>
     body{
-        background-color: rgb(251, 255, 0);    }
+        background-color: yellow    }
 </style>
 
 <body>
 
-    <h1><u>Buscar Usuario por Alias:</u></h1>
+    <h1><u>Buscar Usuario por nombre de Usuario:</u></h1>
 
     <form action="/appblog/buscarUsuario/" method="GET" >
-        <input type="text" name="nickname">
+        <input type="text" name="username">
         <input type="submit" value="Buscar" >
     </form>
     

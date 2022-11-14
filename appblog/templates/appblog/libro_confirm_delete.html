@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Libro</title>
+</head>
+<body>
+    <h1>¿Esta seguro de que desea eliminar este Libro?</h1>
+    <form method="POST">
+         {% csrf_token %}
+<!--OJO aqui no uso el books sino libro, que es la forma en que guarde la info en el diccionario del formulario-->
+            <p>Realmente seguro que quieres eliminar el libro "{{libro.titulo}}" del autor {{libro.autor}} ???</p>
+
+         <input type="submit" value= "CONFIRMAR" >
+
+    </form>
+    <a href="{% url 'libro_lista' %}" > Regresar</a>
+</body>
+</html>

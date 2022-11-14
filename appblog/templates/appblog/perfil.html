@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+</head>
+<style>
+    body{
+        background-color: yellow
+    }
+</style>
+
+<body>
+    <h1>Información sobre del usuario "{{user}}"</h1>
+        <p>
+                {% if request.user.avatar.imagen %}
+                <img src={{request.user.avatar.imagen.url}} alt="">
+                {% else %}
+                Imagen NO cargada
+                {% endif %}
+        </p>
+    
+        <p>Nombre : {{request.user.first_name}}</p>
+        <p>Apellido : {{request.user.last_name}}</p>
+        <p>email : {{request.user.email}}</p>
+        
+    
+    <p><a href="{% url 'EditarPerfil'%}" > Ir  a editar perfil</a></p>
+
+    <p><a href="{% url 'CambiarContrasenia'%}" > Ir  a cambiar contraseña</a></p>
+
+    <p><h3><a href="/appblog/">Volver a la pagina inicial</a></h3></p> 
+</body>
+</html>

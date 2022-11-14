@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "appblog/base2.html"%}
+{%block main_content%}
 <style>
     body{
-        background-color: rgb(0, 255, 85);
+        background-color: yellow
     }
 
 </style>
-<body>
-    <h1>Seccion de comentarios</h1>
+    <h1>Sección de comentarios</h1>
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-success">Id</th>
+                        <th class="table-success">Creador</th>
+                        <th class="table-success">Publicación</th>
+                        <th class="table-success">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in comments %}
+                        <tr>
+                        <td>{{comment.id}}</td> 
+                        <td>{{comment.creador}} </td>
+                        <td>{{comment.texto}} </td>   
+                        <td>{{comment.fechaCreacion}} </td>
+                        <td><a href= "{% url 'editarComentario' comment.id %}" ><font color="blue">Editar</font></a></td>   
+                        <td><a href= "{% url 'eliminarComentario' comment.id %}" ><font color="red">Borrar</font></a></td>   
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    {% for comment in comments %}
-        <p>Id: {{comment.id}}</p> 
-        <p>Creado por: {{comment.creador}} </p>
-        <p>Publicación: {{comment.texto}} </p>   
-        <p>Fecha de creación: {{comment.fechaCreacion}} </p>
-        <br>
-    {% endfor %}
-</body>
-
-</html>
+{%endblock%}

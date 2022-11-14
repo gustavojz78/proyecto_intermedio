@@ -1,0 +1,17 @@
+
+<h1> Formulario para editar perfil del usuario  "{{usuario}}"</h1>
+<p>Debe estar atento de cargar nuevamente el avatar</p>
+<form method="POST" enctype = 'multipart/form-data'> 
+    {% csrf_token %}
+    <style>
+        body{
+            background-color: orange;
+        }
+    </style>
+ 
+            {{forms.as_p}}
+
+     <input type="submit" value="Actualizar" class="btn btn-primary" > 
+</form>
+
+

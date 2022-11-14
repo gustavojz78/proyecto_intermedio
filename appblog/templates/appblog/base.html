@@ -29,15 +29,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio'%}">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'Logout'%}">Logout</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'busquedaAutor'%}">Buscar Libro</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'busquedaUsuario'%}">Buscar Usuario</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'busquedaComentario'%}">Buscar Comentario</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'libroFormulario'%}">Añadir Libro</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'usuarioFormulario'%}">Añadir Usuario</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'libroFormulario'%}">Librería</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'comentarioFormulario'%}">Añadir Comentario</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'libro' %}">Libros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'comentario'%}">Comentarios</a></li>
+                        {% if not request.user.is_authenticated %}
+                        <li class="btn-primary btn-primary text-uppercase"><a class="nav-link" href="{% url 'Login'%}"><font color="black">Login</font></a></li>
+                        {% else %}
+                            <p class="text-muted big mb-9"><a class="nav-link" href="{% url 'Perfil'%}"><font color="orange"><h3>{{request.user.username}}</font></a></p>
+                        {% endif %}
                        
                         
                        <!-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> -->
@@ -49,11 +53,17 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Bienvenido a nuestro Blog!</div>
-                <div class="masthead-heading text-uppercase"> Fer, Gus & Hasan</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'entrar' %}">Entrar</a>
+                <div class="masthead-subheading">por Gustavo Jaramillo</div>
+                <div class="masthead-heading text-uppercase"> Mi Blog</div>
+                <a class="btn btn-primary btn-primary text-uppercase" href="{% url 'entrar' %}">About Me</a>
+                <a class="btn btn-primary btn-primary text-uppercase" href="{% url 'Registro'%}">Registro</a>
             </div>
         </header>  
+			{% if mensaje %}
+				{% for i in mensaje %}
+					<h1>{{i}}</h1> 
+				{% endfor %}
+			{% endif %}
 
         {%block main_content%}
 
